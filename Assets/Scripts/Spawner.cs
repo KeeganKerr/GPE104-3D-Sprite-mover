@@ -12,7 +12,8 @@ public class Spawner : MonoBehaviour
         {
             float randomX = Random.Range(-spawnRange, spawnRange);
             float randomY = Random.Range(-spawnRange, spawnRange);
-            Vector2 spawnPos = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
+            float randomZ = Random.Range(-spawnRange, spawnRange);
+            Vector3 spawnPos = new Vector3(transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
 
             Instantiate(damageZones, spawnPos, damageZones.transform.rotation);
         }

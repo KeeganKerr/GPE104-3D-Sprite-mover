@@ -23,6 +23,8 @@ public class CameraTracking : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {   
+        if (player == null)
+        return;
        // Move camera to follow the player
         transform.position = player.position + player.forward * offset.z + player.right * offset.x + Vector3.up * offset.y;
 

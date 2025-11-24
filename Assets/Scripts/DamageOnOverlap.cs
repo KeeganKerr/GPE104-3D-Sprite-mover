@@ -6,10 +6,16 @@ public class DamageOnOverlap : MonoBehaviour
 {
     public float damageDone;
     public bool isInstaKill;
+    public bool canDamage;
      
      //on trigger runs the proccess of the pawn taking damage or being killed via hitbox
     void OnTriggerEnter(Collider other)
     {
+         if (!canDamage) return;
+
+        // Only damage the player
+        if (!other.CompareTag("Player")) return;
+
         Debug.Log("Hit! " + other.gameObject.name);
 
         Health otherHealth = other.gameObject.GetComponent<Health>();
