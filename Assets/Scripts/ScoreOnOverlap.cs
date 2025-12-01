@@ -9,6 +9,8 @@ public class ScoreOnOverlap : MonoBehaviour
     if (GameManager.instance != null)
       {
          GameManager.instance.AddScore(scoreValue);
+
+         Destroy(gameObject, 0.1f);
       }
 }
 }

@@ -5,8 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float currentHealth;
+
     public float maxHealth;
 
+    public int lives;
+
+    public Vector3 respawn;
+
+   
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -26,10 +32,19 @@ public class Health : MonoBehaviour
         
          //Checks to see if the pawn is alive and if so deals damage
        currentHealth = currentHealth - amount;
-       if ( !IsAlive())
+       if ( currentHealth <= 0)
        {
+        lives--;
+
+        if(lives > 0)
+        {
+          currentHealth = maxHealth;
+         
+        }
+        else{
          currentHealth = 0;
          IsDead();
+        }
        }
     }
        //Gives the pawn the ability to heal without going past max

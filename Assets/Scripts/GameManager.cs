@@ -59,12 +59,16 @@ public class GameManager : MonoBehaviour
         if (damageZones.Count == 0)
         {
             Debug.Log("Victory");
+
+            SceneManager.LoadScene("Victory");
         }
 
         // Check for failure: pawn destroyed
         if (pawn == null)
         {
             Debug.Log("Failure");
+
+            SceneManager.LoadScene("Failure");
         }
     }
 

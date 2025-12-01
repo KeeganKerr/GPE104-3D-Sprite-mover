@@ -6,6 +6,7 @@ public class DeathDestroy : Death
 {
    public float scoreValue;
    public AudioSource audioSource;
+   
 
    public override void IsDead()
    {

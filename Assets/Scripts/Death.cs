@@ -10,6 +10,29 @@ public abstract class Death : MonoBehaviour
     public virtual void InstaKill()
     {
         
-        IsDead();
+       Health health = GetComponent<Health>();
+
+        if (health != null)
+        {
+            health.lives--;
+
+            if (health.lives > 0)
+            {
+                // resets health to max when killed 
+                health.currentHealth = health.maxHealth;
+            }
+            else
+            {
+                // kills the player if there are no lives remaining
+                health.currentHealth = 0;
+                IsDead();
+            }
+        }
+        else
+        {
+           
+            IsDead();
+        }
+
     } 
 }

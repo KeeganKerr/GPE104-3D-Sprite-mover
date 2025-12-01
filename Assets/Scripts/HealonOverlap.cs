@@ -10,6 +10,10 @@ public class HealonOverlap : MonoBehaviour
         Health otherHealth = other.gameObject.GetComponent<Health>();
         {
             otherHealth.Heal(otherHealth.currentHealth);
+
+            Destroy(gameObject, 0.1f);
         }
+
+        
     }
 }
